@@ -35,7 +35,7 @@ app.get('/js',(req,res) => {
 
 app.get('/api/robots', (req, res) => {
     try {
-        res.status(200).send(botsArr)
+        res.status(200).send(bots)
     } catch (error) {
         //rollbar.log(`bots could not be loaded`)
         rollbar.warning(`could not get bots`)

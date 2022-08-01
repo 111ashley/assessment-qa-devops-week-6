@@ -23,15 +23,15 @@ test('Title shows up when page loads', async () => {
 test('Wins show up every time page reloads', async () => {
     const stats = await driver.findElement(By.id('wins'))
     const displayed = await stats.isDisplayed()
-    expect(displayed).toBeTruthy()
+    expect(displayed).toBe(true)
 })
 
 test('Bots show up when draw button is clicked', async () => {
     await driver.findElement(By.id('draw')).click()
     await driver.sleep(3000)
     const bots = await driver.findElement(By.id("choices"))
-    const displayed = bots.isDisplayed()
-    expect(displayed).toBeTruthy()
+    const displayed = await bots.isDisplayed()
+    expect(displayed).toBe(true)
 
 })
 
@@ -41,7 +41,7 @@ test('Bot is added to new div once add to duo is clicked', async () =>{
     await driver.findElement(By.xpath(`/html/body/section[1]/div/div[2]/button`)).click()
     const botRelocated = await driver.findElement(By.id('player-duo'))
     const displayed = await botRelocated.isDisplayed()
-    expect(displayed).toBeTruthy()
+    expect(displayed).toBe(true)
     await driver.sleep(3000)
 })
 })
