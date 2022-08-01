@@ -52,6 +52,7 @@ app.get('/api/robots/five', (req, res) => {
         rollbar.info(`user added players to their duo`)
         res.status(200).send({choices, compDuo})
     } catch (error) {
+        rollbar.error(error)
         console.log('ERROR GETTING FIVE BOTS', error)
         res.sendStatus(400)
     }
@@ -83,6 +84,7 @@ app.post('/api/duel', (req, res) => {
             res.status(200).send('You won!')
         }
     } catch (error) {
+        rollbar.error(error)
         console.log('ERROR DUELING', error)
         res.sendStatus(400)
     }
